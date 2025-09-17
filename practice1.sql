@@ -30,3 +30,10 @@ WHERE weight >= 100 and weight <= 120
 update patients
 set allergies = 'NKA'
 where allergies is NULL
+
+-- 6. Show first name and last name concatinated into one column to show their full name.
+
+SELECT
+  CONCAT (first_name, ' ', last_name) as full_name
+FROM patients
+
