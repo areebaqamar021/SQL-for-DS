@@ -70,4 +70,13 @@ FROM patients
 WHERE
   patient_id in(1, 45, 534, 879, 1000)
 
-11. 
+-- 11. Show the total number of admissions
+
+SELECT count(*)
+FROM admissions
+
+-- 12. Show all the columns from admissions where the patient was admitted and discharged on the same day.
+
+SELECT *
+FROM admissions
+WHERE admission_date = discharge_date
