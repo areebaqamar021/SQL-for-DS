@@ -29,3 +29,18 @@ WHERE allergies IS NOT NULL AND city = 'Hamilton'
 SELECT DISTINCT YEAR(birth_date) AS birth_year
 FROM patients
 ORDER BY birth_year
+
+-- 16. Show unique first names from the patients table which only occurs once in the list.
+
+-- For example, if two or more people are named 'John' in the first_name column then don't include their name in the output list. If only 1 person is named 'Leo' then include them in the output.
+
+SELECT first_name
+FROM patients
+GROUP BY first_name
+HAVING COUNT(*) = 1
+
+-- 17. Show patient_id and first_name from patients where their first_name start and ends with 's' and is at least 6 characters long.
+
+SELECT patient_id, first_name
+FROM patients
+WHERE first_name LIKE "s____%s"
