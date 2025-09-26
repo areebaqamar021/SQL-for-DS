@@ -44,3 +44,12 @@ HAVING COUNT(*) = 1
 SELECT patient_id, first_name
 FROM patients
 WHERE first_name LIKE "s____%s"
+
+-- 18. Show patient_id, first_name, last_name from patients whos diagnosis is 'Dementia'.
+
+-- Primary diagnosis is stored in the admissions table.
+
+SELECT patients.patient_id, first_name, last_name 
+FROM patients
+JOIN admissions ON admissions.patient_id = patients.patient_id
+WHERE admissions.diagnosis = 'Dementia'
