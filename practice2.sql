@@ -53,3 +53,27 @@ SELECT patients.patient_id, first_name, last_name
 FROM patients
 JOIN admissions ON admissions.patient_id = patients.patient_id
 WHERE admissions.diagnosis = 'Dementia'
+
+-- 19. Display every patient's first_name.
+-- Order the list by the length of each name and then by alphabetically.
+
+SELECT first_name
+FROM patients
+ORDER BY lEN(first_name), first_name
+
+-- 20. Show the total amount of male patients and the total amount of female patients in the patients table.
+-- Display the two results in the same row.
+
+SELECT (
+    SELECT COUNT(*)
+    FROM patients
+    WHERE
+      gender = 'M'
+  ) AS 'male_patients',
+  (
+    SELECT COUNT(*)
+    FROM patients
+    WHERE
+      gender = 'F'
+  ) AS 'female_patients'
+
